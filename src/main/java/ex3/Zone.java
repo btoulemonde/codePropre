@@ -1,32 +1,52 @@
 package ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Zone {
+	
+	private List<Animal> animaux = new ArrayList<>();
+	
+	
 
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
 	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
+
+	public void addAnimal(Animal animal) {
+		animaux.add(animal);
 	}
-	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
+
+	/**
+	 * Méthode permetant d'afficher la liste des animaux du zoo
+	 */
+	public void afficherListeAnimaux() {
+		for (Animal nom : animaux) {
 			System.out.println(nom);
 		}
 	}
-	
-	public int compterAnimaux(){
-		return noms.size();
+
+	/**
+	 * méthode permettant de compter les animaux du zoo
+	 * 
+	 * @return integer
+	 */
+	public int compterAnimaux() {
+		return animaux.size();
 	}
-	
+
+	/**
+	 * Méthode permettant d'afficher le poids d'un animal
+	 * 
+	 * @return double
+	 */
 	public abstract double getPoids();
-	
-	public double calculerKgsNourritureParJour(){
-		return noms.size() * getPoids();
+
+	/**
+	 * méthode permettan de calculer la masse de nourriture quotidienne
+	 * 
+	 * @return double
+	 */
+	public double calculerKgsNourritureParJour() {
+		return animaux.size() * getPoids();
 	}
+
 }

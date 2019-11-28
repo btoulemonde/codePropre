@@ -6,27 +6,27 @@ package ex3;
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
+	private SavaneAfricaine savaneAfricaine = new SavaneAfricaine();
+	private ZoneCarnivore zoneCarnivore= new ZoneCarnivore();
+	private FermeReptile fermeReptile = new FermeReptile();
+	private Aquarium aquarium = new Aquarium();
 	
 	public Zoo(String nom){
 		this.nom = nom;
 	}
 	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
+	public void addAnimal(Animal animal){
+		if (animal.getType().equals("MAMMIFERE") && animal.getComportement().equals("CARNIVORE")){
+			zoneCarnivore.addAnimal(animal);;
 		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
+		else if (animal.getType().equals("MAMMIFERE") && animal.getComportement().equals("HERBIVORE")){
+			savaneAfricaine.addAnimal(animal);
 		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
+		else if (animal.getType().equals("REPTILE")){
+			fermeReptile.addAnimal(animal);
 		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
+		else if (animal.getType().equals("POISSON")){
+			aquarium.addAnimal(animal);
 		}
 	}
 	
@@ -49,5 +49,14 @@ public class Zoo {
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Zoo [nom=" + nom + ", savaneAfricaine=" + savaneAfricaine + ", zoneCarnivore=" + zoneCarnivore
+				+ ", fermeReptile=" + fermeReptile + ", aquarium=" + aquarium + "]";
 	}
 }
