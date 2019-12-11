@@ -16,7 +16,6 @@ public class ZooApplication {
 		zoo.addAnimal(new Animal("Python", "REPTILE", "CARNIVORE"));
 		
 		
-		System.out.println(zoo.toString());
 	}
 			
 }
